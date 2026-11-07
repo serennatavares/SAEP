@@ -2,23 +2,24 @@
 <html>
  <head>
  <meta charset="UTF-8" />
- <title>Formulário Cadastro de Produtos</title>
  <link href="style.css" rel="stylesheet" />
+ <title>Formulário Cadastro Produtos</title>
  </head>
 
  <body>
-    <h1>Cadastro de Produtos</h1>
 
-   <form action="cadastro_produto.php" method="post">
+ <h1>Cadastro de Produtos</h1>
+
+ <form action="cadastro_produto.php" method="POST">
 
  <label for="nome">Nome:</label>
- <input name="nome" id="nome" type="text">
+ <input type="text" name="nome" id="nome" required />
 
  <label for="preco">Preço:</label>
- <input name="preco" id="preco" type="number">
+ <input type="number" name="preco" id="preco" required />
 
  <label for="quantidade">Quantidade:</label>
- <input name="quantidade" id="quantidade" type="number">
+ <input type="number" name="quantidade" id="quantidade" required />
 
  <label for="status_produto">Status:</label>
  <select name="status_produto">
@@ -27,12 +28,14 @@
  <option value="Indisponível">Indisponível</option>
 </select>
 
+<input type="submit" value="Enviar">
 
- <button type="submit">Enviar</button>
 </form>
 
-    <script src="script.js"></script>
-    
+
+   <script src=script.js></script>
+
  </body>
+
 
 </html>
