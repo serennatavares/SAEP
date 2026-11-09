@@ -1,41 +1,49 @@
+<?php
+include('conexao.php');
+
+$result = $mysqli->query("SELECT * FROM funcionarios");
+?>
+
 <!doctype html>
 <html>
  <head>
  <meta charset="UTF-8" />
+ <title>Cadastro Produtos</title>
  <link href="style.css" rel="stylesheet" />
- <title>Formulário Cadastro Produtos</title>
+
  </head>
 
  <body>
 
- <h1>Cadastro de Produtos</h1>
+ <h1>Faça cadastro aqui:</h1>
 
- <form action="cadastro_produto.php" method="POST">
+<form action="cadastro_produto" method="post" class="cadastro_produto">
 
- <label for="nome">Nome:</label>
+ <label for="nome">Nome: </label>
  <input type="text" name="nome" id="nome" required />
 
- <label for="preco">Preço:</label>
- <input type="number" name="preco" id="preco" required />
+ <label for="peso">Peso: </label>
+ <input type="number" name="peso" id="peso" required />
 
- <label for="quantidade">Quantidade:</label>
- <input type="number" name="quantidade" id="quantidade" required />
+ <label for="id_funcionario">Funcionário: </label>
+ <select name="id_funcionario">
 
- <label for="status_produto">Status:</label>
- <select name="status_produto">
- <option value="Disponível">Disponível</option>
- <option value="Selecione" selected>Selecione</option>
- <option value="Indisponível">Indisponível</option>
+ <option value="">Selecione</option>
+
+ <?php while ($funcionaro = $result->fetch_assoc()) { ?>
+ <option value="<?php echo $funcionario['id_funcionario']; ?>"> <?php echo $funcionario['nome']; ?></option>
+
+ <?php } ?>
+
 </select>
 
-<input type="submit" value="Enviar">
+ <button type="submit">Cadastrar</button>
 
 </form>
 
 
-   <script src=script.js></script>
-
  </body>
 
+ <script src="script.js"></script>
 
 </html>
