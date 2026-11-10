@@ -1,10 +1,10 @@
 <?php
 
-include ('conexao.php');
+include('conexao.php');
 
 $id = $_GET["id"];
 
-$sql = "DELETE FROM produto WHERE id = '$id'";
+$sql = "DELETE FROM produtos WHERE id_produto = '$id'";
 
 $mysqli->query($sql);
 

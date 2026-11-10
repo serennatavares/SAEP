@@ -17,7 +17,7 @@ $result = $mysqli->query("SELECT * FROM funcionarios");
 
  <h1>Faça cadastro aqui:</h1>
 
-<form action="cadastro_produto" method="post" class="cadastro_produto">
+<form action="cadastro_produto.php" method="post" class="cadastro_produto">
 
  <label for="nome">Nome: </label>
  <input type="text" name="nome" id="nome" required />
@@ -30,10 +30,11 @@ $result = $mysqli->query("SELECT * FROM funcionarios");
 
  <option value="">Selecione</option>
 
- <?php while ($funcionaro = $result->fetch_assoc()) { ?>
- <option value="<?php echo $funcionario['id_funcionario']; ?>"> <?php echo $funcionario['nome']; ?></option>
-
- <?php } ?>
+ <?php while ($funcionario = $result->fetch_assoc()) { ?>
+    <option value="<?php echo $funcionario['id_funcionario']; ?>">
+        <?php echo $funcionario['nome']; ?>
+    </option>
+<?php } ?>
 
 </select>
 

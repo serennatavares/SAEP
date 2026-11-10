@@ -1,11 +1,7 @@
 <?php
+include('conexao.php');
 
-include ('conexao.php');
-
-$sql = "SELECT * FROM produto";
-
-$resultado = $mysqli->query($sql);
-
+$result = $mysqli->query("SELECT * FROM produtos");
 ?>
 
 <!doctype html>
@@ -23,26 +19,24 @@ $resultado = $mysqli->query($sql);
         <tr>
             <th>ID</th>
             <th>Nome</th>
-            <th>Preço</th>
-            <th>Quantidade</th>
-            <th>Status</th>
+            <th>Peso</th>
+            <th>Funcionário</th>
         </tr>
 
-        <?php while ($produto = $resultado->fetch_assoc()) { ?>
+        <?php while ($produto = $result->fetch_assoc()) { ?>
 
         <tr>
-            <td><?php echo $produto["id"]; ?></td>
+            <td><?php echo $produto["id_produto"]; ?></td>
             <td><?php echo $produto["nome"]; ?></td>
-            <td><?php echo $produto["preco"]; ?></td>
-            <td><?php echo $produto["quantidade"]; ?></td>
-            <td><?php echo $produto["status_produto"]; ?></td>
+            <td><?php echo $produto["peso"]; ?></td>
+            <td><?php echo $produto["id_funcionario"]; ?></td>      
             <td>    
-                <a href="editar_produto.php?id=<?php echo $produto['id']; ?>">
+                <a href="editar_produto.php?id=<?php echo $produto['id_produto']; ?>">
                     <button>Atualizar</button>
                 </a>
             </td>
             <td>
-                <a href="excluir_produto.php?id=<?php echo $produto['id']; ?>">
+                <a href="excluir_produto.php?id=<?php echo $produto['id_produto']; ?>">
                     <button>Excluir</button>
                 </a>
             </td>
